@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "pokelist"
+  "defaultProject": "pokelist",
+  "cli": {
+    "analytics": "23e0b484-6aff-46a2-8918-92be1d79ab7f"
+  }
 }
