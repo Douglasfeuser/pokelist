@@ -12,7 +12,6 @@ import { GamePageComponent } from './game-page/game-page.component';
 import { GenerationListPageComponent} from './generation-list-page/generation-list-page.component';
 import { GenerationPageComponent} from './generation-page/generation-page.component';
 import { OverviewPageComponent } from './overview-page/overview-page.component';
-import { SettingsComponent } from './settings/settings.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
@@ -27,7 +26,6 @@ import { SortPipe } from './sort.pipe';
     OverviewPageComponent,
     GenerationListPageComponent,
     GenerationPageComponent,
-    SettingsComponent,
     PokemonDetailsComponent,
     ScrollToTopComponent,
     GameCardComponent,
@@ -39,7 +37,6 @@ import { SortPipe } from './sort.pipe';
     FormsModule,
     ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
-    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 
   ],
   providers: [],

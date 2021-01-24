@@ -3,7 +3,6 @@ import * as localforage from "localforage";
 const Pokedex = require('pokeapi-js-wrapper');
 const P = new Pokedex.Pokedex();
 import { LocalforageService } from './localforage.service';
-import gameJson from "../assets/game_regions.json";
 
 @Injectable({
   providedIn: 'root'
@@ -69,50 +68,6 @@ export class PokemondbService {
       });
 
     })
-  }
-
-
-
-
-  async getGameDatabase(game: string, allPokemon: any){
-    console.log(`getGameDatabase(${game}) called.`)
-    var db = localforage.createInstance({name:game});
-
-    // check if data exists in the database
-    var rows = await this.lf.getAllRecordsFromDatabase(game);
-    if(rows.length == 0){ // need to populate the database
-      console.log(`Populating db ${game}.`)
-      rows = await this.setGameDatabase(game, allPokemon, db);
-    }
-
-    return rows;
-  }
-
-  async setGameDatabase(game: any, allPokemon: any, db: any){
-    console.log(`pokemondb.setGameDatabase(${game}, allPokemon, ${db}) called`)
-    game = game.split('-').join(' ');
-    var gameRow = gameJson.filter(gameGroup => gameGroup.versions.some(v => v.name == game)); // TODO: Make this case insensitive
-    var pokedex = gameRow[0].pokedexes;
-    var pokemonInGame;
-    pokedex.forEach(dex => {
-      pokemonInGame = allPokemon.filter(d => d.pokedexNumbers.some(c => c.pokedex.name == dex.name));
-      pokemonInGame.forEach(mon => {
-        var numberRegional = mon.pokedexNumbers.filter(i=>i.pokedex.name == dex.name)[0].entry_number;
-        var p = {
-          name: mon.species.name,
-          game: game,
-          caught: false,
-          favorite: false,
-          numberNational: mon.number,
-          numberRegional: numberRegional,
-          types: mon.types,
-          string: mon.string + numberRegional
-        }
-        db.setItem(mon.number, p);
-      });
-    });
-    console.log(pokemonInGame)
-    return pokemonInGame;
   }
 
 }
