@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LocalforageService } from './localforage.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(
+    private lf: LocalforageService
+  ) { }
+
+  gamesToTrack;
   title = 'pokelist';
+  async ngOnInit(): Promise<void> {
+    this.gamesToTrack = await this.lf.getAllRecordsFromDatabase("gamesToTrack");
+    this.gamesToTrack = this.gamesToTrack.filter(g => g.track == true);
+  }
 }
