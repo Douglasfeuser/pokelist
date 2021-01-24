@@ -12,10 +12,6 @@ export class OverviewPageComponent implements OnInit {
   loadingComplete = false;
   Games = new Array;
 
-  constructor(
-    private pokemonDb: PokemondbService
-  ) { }
-
   async ngOnInit(): Promise<void> {
 
     this.loadingComplete = true;

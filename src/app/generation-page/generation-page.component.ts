@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as localforage from "localforage";
 import { ActivatedRoute } from '@angular/router';
-
-const Pokedex = require('pokeapi-js-wrapper');
-const P = new Pokedex.Pokedex();
 
 @Component({
   selector: 'app-generation-page',
@@ -18,7 +14,7 @@ export class GenerationPageComponent implements OnInit {
   sortByName = 'name';
 
   constructor(
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) { }
 
   async ngOnInit(): Promise<void> {
@@ -26,15 +22,12 @@ export class GenerationPageComponent implements OnInit {
       this.id = params['id'];
     });
 
-    var generationTest = await P.getGenerationsList();
-    console.log(generationTest);
-
     await fetch(`https://pokeapi.co/api/v2/generation/${this.id}`)
         .then((res) => res.json())
         .then((data) => {
             this.GenerationName = data.names[5]? data.names[5].name : 'Generation VIII';
             this.pokemon = data.pokemon_species;
-        });
+          });
 
   }
 
@@ -45,6 +38,7 @@ export class GenerationPageComponent implements OnInit {
   }
 
   sortBy() {
+    console.log(this.pokemon);
     this.pokemon.sort((a, b) => a[this.sortByName] > b[this.sortByName] ? 1 : a[this.sortByName] === b[this.sortByName] ? 0 : -1);
     return this.pokemon
   }

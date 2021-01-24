@@ -1,9 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PokemondbService } from '../pokemondb.service';
-import colorsTypes from "../../assets/colors_types.json"
-
-const Pokedex = require('pokeapi-js-wrapper');
-const P = new Pokedex.Pokedex();
+import { PokemondbService } from "../pokemondb.service";
 
 @Component({
   selector: 'app-pokemon-card',
@@ -13,13 +9,17 @@ const P = new Pokedex.Pokedex();
 export class PokemonCardComponent implements OnInit {
   @Input()
   pokemon: any;
+  loadingComplete = false;
 
   constructor(
-    public pokemonDb: PokemondbService
+    private pokemonDb: PokemondbService
   ) { }
 
   async ngOnInit(): Promise<void> {
-    this.pokemon = await P.getPokemonByName(this.pokemon.name);
+    this.pokemon = await this.pokemonDb.getPokemonFromSpecies(this.pokemon);
+
+    this.loadingComplete = true;
+
     // console.log(this.pokemon);
   }
 
