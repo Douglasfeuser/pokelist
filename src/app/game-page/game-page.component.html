@@ -1,0 +1,8 @@
+
+<h1 style="margin-left: 10px; margin-top: 10px;"> {{GameName}}</h1>
+
+<div class="card-deck" style="margin-left: 5px; margin-top: 25px;">
+    <div *ngFor="let mon of pokemon">
+        <app-pokemon-card [pokemon]="mon"></app-pokemon-card>
+    </div>
+</div>

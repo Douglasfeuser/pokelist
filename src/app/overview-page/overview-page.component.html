@@ -1,0 +1,27 @@
+
+
+  <div *ngIf = "loadingComplete === false; else ngTemplateTrue">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <ng-template #ngTemplateTrue>
+    <div *ngFor="let r of Games">
+      <div class="card card-expand-sm" >
+        <div class="card-body">
+          <a href="/game/{{r.dbName}}" class="btn btn-secondary">Go to Game: {{r.GameName}}</a>
+          <ul class="list-group list-group-horizontal">
+            <li class="list-group-item">Caught
+              <span class="badge badge-secondary badge-pill">{{r.caught}}</span>
+            </li>
+            <li class="list-group-item">Favorite
+              <span class="badge badge-secondary badge-pill">{{r.favorite}}</span>
+            </li>
+            <li class="list-group-item">Total
+              <span class="badge badge-secondary badge-pill">{{r.total}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </ng-template>

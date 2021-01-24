@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as localforage from "localforage";
 import { PokemondbService } from '../pokemondb.service';
-import { LocalforageService } from '../localforage.service';
 
 @Component({
   selector: 'app-generation-list-page',
@@ -9,16 +8,12 @@ import { LocalforageService } from '../localforage.service';
   styleUrls: ['./generation-list-page.component.css']
 })
 export class GenerationListPageComponent implements OnInit {
-  oras;
-  letsgo;
   loadingComplete = false;
-  gamesToTrack;
   Generations = new Array;
   GenerationsList = new Array;
 
   constructor(
-    private pokemonDb: PokemondbService,
-    private lf: LocalforageService
+    private pokemonDb: PokemondbService
   ) { }
 
   async ngOnInit(): Promise<void> {

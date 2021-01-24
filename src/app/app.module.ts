@@ -15,7 +15,6 @@ import { OverviewPageComponent } from './overview-page/overview-page.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
-import { GameCardComponent } from './game-card/game-card.component';
 import { SortPipe } from './sort.pipe';
 
 @NgModule({
@@ -28,7 +27,6 @@ import { SortPipe } from './sort.pipe';
     GenerationPageComponent,
     PokemonDetailsComponent,
     ScrollToTopComponent,
-    GameCardComponent,
     SortPipe,
   ],
   imports: [
