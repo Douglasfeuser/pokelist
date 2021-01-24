@@ -1,0 +1,21 @@
+
+
+  <div *ngIf = "loadingComplete === false; else ngTemplateTrue">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <ng-template #ngTemplateTrue>
+    <div *ngFor="let generation of GenerationsList">
+      <div class="card card-expand-sm" >
+        <div class="card-body">
+          <a href="/geracao/{{generation.id}}" class="btn btn-danger">Ver geração: {{generation.name}}</a>
+          <ul class="list-group list-group-horizontal">
+            <li class="list-group-item">Total
+              <span class="badge badge-danger badge-pill">{{generation.total}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </ng-template>

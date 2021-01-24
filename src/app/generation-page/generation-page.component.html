@@ -1,0 +1,20 @@
+
+<h1 style="margin-left: 10px; margin-top: 10px;"> {{GenerationName}}</h1>
+
+<div class="d-inline-block" style="margin-left: 10px;" >
+  <div class="dropdown" >
+      <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Ordernar por:
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+          <a class="dropdown-item" (click)="setSortByName('name')" >Nome</a>
+          <a class="dropdown-item" (click)="setSortByName('order')">Número</a>
+      </div>
+  </div>
+</div>
+
+<div class="card-deck" style="margin-left: 5px; margin-top: 25px;">
+    <div *ngFor="let mon of pokemon | sort:'asc':sortByName">
+        <app-pokemon-card [pokemon]="mon"></app-pokemon-card>
+    </div>
+</div>
