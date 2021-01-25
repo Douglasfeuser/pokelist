@@ -1,20 +1,26 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute } from '@angular/router';
 
-import { GamePageComponent } from './generation-page.component';
+import { GenerationPageComponent } from './generation-page.component';
 
-describe('GamePageComponent', () => {
-  let component: GamePageComponent;
-  let fixture: ComponentFixture<GamePageComponent>;
+describe('GenerationPageComponent', () => {
+  let component: GenerationPageComponent;
+  let fixture: ComponentFixture<GenerationPageComponent>;
+  let route: ActivatedRoute;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GamePageComponent ]
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [ GenerationPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GamePageComponent);
+    fixture = TestBed.createComponent(GenerationPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

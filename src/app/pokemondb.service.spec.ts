@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { PokemondbService } from './pokemondb.service';
 
 describe('PokemondbService', () => {

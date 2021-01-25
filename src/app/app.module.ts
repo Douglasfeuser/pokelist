@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from "@angular/router/testing";
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -36,10 +38,12 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterModule.forRoot([]),
+    RouterTestingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 
   ],
-  providers: [],
+  providers: [SortPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
