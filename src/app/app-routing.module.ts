@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { GamePageComponent} from './game-page/game-page.component';
-import { OverviewPageComponent} from './overview-page/overview-page.component'
-import { GenerationListPageComponent} from './generation-list-page/generation-list-page.component'
+import { OverviewPageComponent} from './overview-page/overview-page.component';
+import { GenerationListPageComponent} from './generation-list-page/generation-list-page.component';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 import { GenerationPageComponent} from './generation-page/generation-page.component';
 

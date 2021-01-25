@@ -38,7 +38,7 @@ export class GenerationPageComponent implements OnInit {
 
   sortBy() {
     this.pokemon.sort((a, b) => a[this.sortByName] > b[this.sortByName] ? 1 : a[this.sortByName] === b[this.sortByName] ? 0 : -1);
-    return this.pokemon
+    return this.pokemon;
   }
 
 }

@@ -8,6 +8,5 @@ export class AppComponent {
 
   title = 'pokelist';
   async ngOnInit(): Promise<void> {
-    
   }
 }

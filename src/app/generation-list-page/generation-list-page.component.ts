@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as localforage from "localforage";
-import { PokemondbService } from '../pokemondb.service';
 
 @Component({
   selector: 'app-generation-list-page',
@@ -25,7 +23,7 @@ export class GenerationListPageComponent implements OnInit {
         .then((res) => res.json())
         .then((data) => {
 
-            var Generation = {
+            const Generation = {
               id: data.id,
               name: data.names[5]? data.names[5].name : 'Generation VIII',
               total: data.pokemon_species.length,

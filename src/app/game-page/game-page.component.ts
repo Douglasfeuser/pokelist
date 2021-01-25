@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as localforage from "localforage";
-import { ActivatedRoute } from '@angular/router';
 
-const Pokedex = require('pokeapi-js-wrapper');
-const P = new Pokedex.Pokedex();
-
-import {PokemondbService} from "../pokemondb.service"
 @Component({
   selector: 'app-game-page',
   templateUrl: './game-page.component.html',
@@ -18,10 +12,6 @@ export class GamePageComponent implements OnInit {
   pokemon;
   searchText;
   searchNumber;
-
-  constructor(
-    private route: ActivatedRoute,
-  ) { }
 
   async ngOnInit(): Promise<void> {
 
