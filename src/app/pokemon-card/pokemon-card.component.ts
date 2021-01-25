@@ -21,4 +21,9 @@ export class PokemonCardComponent implements OnInit {
     this.loadingComplete = true;
   }
 
+  getPrincipalType(list: any[]) {
+    console.log(list);
+    // return list.filter(x => x.slot === 1)[0]?.type.name;
+  }
+
 }

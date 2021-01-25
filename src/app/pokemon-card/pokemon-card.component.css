@@ -27,6 +27,8 @@ a.card:hover{
   width: 96px;
   height: 96px;
   float: left;
+  background-image: url('../../assets/images/pokeball-background.png');
+  background-size: contain;
 }
 
 .bug{
