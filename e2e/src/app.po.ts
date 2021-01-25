@@ -25,6 +25,10 @@ export class AppPage {
     return element(by.css('[class="navbar-brand navbar-dark"]')).getText();
   }
 
+  async getNavMenuGeracoes(): Promise<string> {
+    return element(by.css('.nav-item .nav-link')).getText();
+  }
+
   getGenerationButton() {
     return element(by.css('[href="/geracao/1"]'));
   }

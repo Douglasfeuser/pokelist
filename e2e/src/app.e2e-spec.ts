@@ -13,6 +13,11 @@ describe('workspace-project App', () => {
     expect(await page.getNavText()).toEqual('PokeList');
   });
 
+  it('should display menu gerações on navbar', async () => {
+    await page.navigateTo();
+    expect(await page.getNavMenuGeracoes()).toEqual('Gerações');
+  });
+
   it('should be rigth url', async () => {
 
     await page.navigateTo();
