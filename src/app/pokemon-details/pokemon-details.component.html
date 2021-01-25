@@ -1,4 +1,4 @@
-<!-- https://getbootstrap.com/docs/4.4/components/popovers/ -->
-
-<p>pokemon-details works!</p>
-
+<div *ngIf="pokemon$ | async as pokemon">
+  <p>pokemon-details works!</p>
+  <p>{{pokemon.name}}</p>
+</div>

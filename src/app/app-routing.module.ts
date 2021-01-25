@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '',      component: GenerationListPageComponent },
   { path: 'geracoes',      component: GenerationListPageComponent },
   { path: 'geracao/:id',      component: GenerationPageComponent },
-  { path: 'jogo/:id/:numberNational', component: PokemonDetailsComponent}
+  { path: 'pokemon/:id',      component: PokemonDetailsComponent }
 ];
 
 @NgModule({

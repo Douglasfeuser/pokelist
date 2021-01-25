@@ -12,10 +12,6 @@ export class GenerationListPageComponent implements OnInit {
   Generations = new Array;
   GenerationsList = new Array;
 
-  constructor(
-    private pokemonDb: PokemondbService
-  ) { }
-
   async ngOnInit(): Promise<void> {
 
     await fetch(`https://pokeapi.co/api/v2/generation`)
@@ -28,8 +24,6 @@ export class GenerationListPageComponent implements OnInit {
         await fetch(`https://pokeapi.co/api/v2/generation/${generation.name}`)
         .then((res) => res.json())
         .then((data) => {
-            console.log('teste');
-            console.log(data);
 
             var Generation = {
               id: data.id,

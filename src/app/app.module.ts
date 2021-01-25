@@ -16,6 +16,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 import { SortPipe } from './sort.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SortPipe } from './sort.pipe';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 
   ],

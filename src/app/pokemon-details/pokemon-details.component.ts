@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PokemondbService } from '../pokemondb.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -9,21 +10,21 @@ import { PokemondbService } from '../pokemondb.service';
 })
 export class PokemonDetailsComponent implements OnInit {
   private sub: any;
-  GameName?: string;
-  numberNational;
-  pokemon;
-
+  id!: string;
+  public pokemon$!: Observable<any>;
 
   constructor(
     private route: ActivatedRoute,
-    private pokemonDb: PokemondbService
+    private http: HttpClient
   ) { }
 
   async ngOnInit(): Promise<void> {
     this.sub = this.route.params.subscribe(params => {
-      this.GameName = params['id'];
-      this.numberNational = params['numberNational'];
+      this.id = params['id'];
     });
+
+    this.pokemon$ = this.http.get(`https://pokeapi.co/api/v2/pokemon/${this.id}`);
+
   }
 
 }

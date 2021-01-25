@@ -59,9 +59,6 @@ export class PokemondbService {
     var speciesByName = await P.getPokemonSpeciesByName(pokemonSpecies.name);
     var pokemonByName = await P.getPokemonByName(speciesByName.id);
 
-    console.log(speciesByName);
-    console.log(pokemonByName);
-
     var pokemonDataWithString = {
       name: pokemonByName.name,
       number: pokemonByName.id,

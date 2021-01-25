@@ -19,8 +19,6 @@ export class PokemonCardComponent implements OnInit {
     this.pokemon = await this.pokemonDb.getPokemonFromSpecies(this.pokemon);
 
     this.loadingComplete = true;
-
-    // console.log(this.pokemon);
   }
 
 }

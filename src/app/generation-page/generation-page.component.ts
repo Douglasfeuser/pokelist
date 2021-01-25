@@ -32,13 +32,11 @@ export class GenerationPageComponent implements OnInit {
   }
 
   setSortByName(sortByName: any){
-    console.log(`setSortByName(${sortByName}) called.`)
     this.sortByName = sortByName;
     this.pokemon = this.sortBy();
   }
 
   sortBy() {
-    console.log(this.pokemon);
     this.pokemon.sort((a, b) => a[this.sortByName] > b[this.sortByName] ? 1 : a[this.sortByName] === b[this.sortByName] ? 0 : -1);
     return this.pokemon
   }
