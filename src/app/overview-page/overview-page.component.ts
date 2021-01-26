@@ -69,12 +69,14 @@ export class OverviewPageComponent implements OnInit {
 
             const Game = {
               id: game.id,
+              nameUrl: game.name,
               name: game.names[6] ? game.names[6].name : game.name,
               pokedex: namesDex? namesDex[0].name : '??',
               total: pokedex? pokedex.pokemon_entries.length : '??',
               regions: namesRegions[0].name,
               generation: generation.names[5]? generation.names[5].name : generation.name,
             }
+            console.log
 
             this.Games.push(Game);
 

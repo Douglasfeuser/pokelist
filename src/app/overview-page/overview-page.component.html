@@ -7,7 +7,7 @@
     <div *ngFor="let game of Games">
       <div class="card card-expand-sm" *ngIf="game.name != 'XD' && game.name != 'Colosseum'">
         <div class="card-body">
-          <a href="/jogo/{{game.name}}" class="btn btn-danger">Ver jogo: {{game.name}}</a>
+          <a href="/jogo/{{game.nameUrl}}" class="btn btn-danger">Ver jogo: {{game.name}}</a>
           <ul class="list-group list-group-horizontal">
             <li class="list-group-item">
               {{game.generation}}
