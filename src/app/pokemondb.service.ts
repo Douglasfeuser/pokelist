@@ -43,7 +43,7 @@ export class PokemondbService {
   async getRegionByName(name){
     return await P.resource(`api/v2/region/${name}`).then(function(response) {
       return response;
-    })
+    });
   }
 
   async getAllPokemonSpecies(){

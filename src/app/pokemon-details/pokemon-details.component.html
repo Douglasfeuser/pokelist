@@ -1,3 +1,26 @@
-<div *ngIf="pokemon$ | async as pokemon">
-  <h1 class="text-center text-uppercase pokemon-title">{{pokemon.name}}</h1>
+<div *ngIf = "loadingComplete === false; else ngTemplateTrue">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
 </div>
+<ng-template #ngTemplateTrue>
+  <div *ngIf="pokemon">
+    <div class="container text-center">
+      <h1 class="text-center text-capitalize pokemon-title">{{pokemon.name}}</h1>
+      <span *ngIf="pokemon.entry_number; else number">{{pokemon.entry_number}}</span>
+      <ng-template #number>
+        <span>{{pokemon.number}}</span>
+      </ng-template>
+
+      <ul class="list-group list-group-horizontal d-flex justify-content-center">
+        <div *ngFor="let type of pokemon.types">
+            <li class="list-group-item {{type.type.name}}">{{type.type.name}}</li>
+        </div>
+      </ul>
+
+      <div class="card-img" *ngIf="pokemon.sprites">
+        <img src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}">
+      </div>
+    </div>
+  </div>
+</ng-template>

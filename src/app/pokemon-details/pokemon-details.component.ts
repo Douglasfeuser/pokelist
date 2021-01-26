@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { PokemondbService } from '../pokemondb.service';
+const Pokedex = require('pokeapi-js-wrapper');
+const P = new Pokedex.Pokedex();
 
 @Component({
   selector: 'app-pokemon-details',
@@ -11,11 +12,12 @@ import { Observable } from 'rxjs';
 export class PokemonDetailsComponent implements OnInit {
   private sub: any;
   id!: string;
-  public pokemon$!: Observable<any>;
+  pokemon;
+  loadingComplete = false;
 
   constructor(
     private route: ActivatedRoute,
-    private http: HttpClient
+    private pokemonDb: PokemondbService
   ) { }
 
   async ngOnInit(): Promise<void> {
@@ -23,7 +25,13 @@ export class PokemonDetailsComponent implements OnInit {
       this.id = params['id'];
     });
 
-    this.pokemon$ = this.http.get(`https://pokeapi.co/api/v2/pokemon/${this.id}`);
+    console.log(this.id);
+    let pokemonName = await P.resource(`api/v2/pokemon-species/${this.id}`).then(function(pokemon) {
+      return pokemon;
+    });
+    this.pokemon = await this.pokemonDb.getPokemonFromSpecies(pokemonName);
+
+    this.loadingComplete = true;
 
   }
 
