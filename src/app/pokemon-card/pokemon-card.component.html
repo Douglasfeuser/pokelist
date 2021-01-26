@@ -1,26 +1,33 @@
-<a href="pokemon/{{pokemon.name}}" class="card" style="width: 18rem;margin-bottom: 5px;">
-  <div class="card-body">
+<div *ngIf = "loadingComplete === false; else ngTemplateTrue">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<ng-template #ngTemplateTrue>
+  <a href="pokemon/{{pokemon.name}}" class="card" style="width: 18rem;margin-bottom: 5px;">
+    <div class="card-body">
 
-    <div class="card-detail" >
-      <div class="d-inline-block">
-          <h5 class="card-title" >{{pokemon.name}} -
-            <span *ngIf="entry_number; else number">{{entry_number}}</span>
-            <ng-template #number>
-              <span>{{pokemon.number}}</span>
-            </ng-template>
-          </h5>
+      <div class="card-detail" >
+        <div class="d-inline-block">
+            <h5 class="card-title" >{{pokemon.name}} -
+              <span *ngIf="entry_number; else number">{{entry_number}}</span>
+              <ng-template #number>
+                <span>{{pokemon.number}}</span>
+              </ng-template>
+            </h5>
+        </div>
+
+        <ul class="list-group list-group-horizontal">
+          <div *ngFor="let type of pokemon.types">
+              <li class="list-group-item {{type.type.name}}">{{type.type.name}}</li>
+          </div>
+        </ul>
       </div>
 
-      <ul class="list-group list-group-horizontal">
-        <div *ngFor="let type of pokemon.types">
-            <li class="list-group-item {{type.type.name}}">{{type.type.name}}</li>
-        </div>
-      </ul>
-    </div>
+      <div class="card-img" *ngIf="pokemon.sprites">
+        <img src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}">
+      </div>
 
-    <div class="card-img" *ngIf="pokemon.sprites">
-      <img src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}">
     </div>
-
-  </div>
-</a>
+  </a>
+</ng-template>

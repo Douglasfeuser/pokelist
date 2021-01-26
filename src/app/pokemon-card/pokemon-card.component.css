@@ -1,4 +1,8 @@
 
+.spinner-border{
+  margin: 90px;
+}
+
 .list-group-item
 {
   overflow:hidden;
