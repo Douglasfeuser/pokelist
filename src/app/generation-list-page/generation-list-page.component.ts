@@ -27,6 +27,7 @@ export class GenerationListPageComponent implements OnInit {
               id: data.id,
               name: data.names[5]? data.names[5].name : 'Generation VIII',
               total: data.pokemon_species.length,
+              totalJogos: data.version_groups.length,
             }
 
             this.GenerationsList.push(Generation);

@@ -9,7 +9,7 @@ import { GenerationPageComponent} from './generation-page/generation-page.compon
 const routes: Routes = [
   { path: 'jogo/:id',      component: GamePageComponent },
   { path: 'jogos',      component: OverviewPageComponent },
-  { path: '',      component: GenerationListPageComponent },
+  { path: '',      component: OverviewPageComponent },
   { path: 'geracoes',      component: GenerationListPageComponent },
   { path: 'geracao/:id',      component: GenerationPageComponent },
   { path: 'pokemon/:id',      component: PokemonDetailsComponent }

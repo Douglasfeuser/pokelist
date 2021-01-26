@@ -17,8 +17,8 @@ import { OverviewPageComponent } from './overview-page/overview-page.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
-import { SortPipe } from './sort.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { SortPipe } from './sort.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     GenerationPageComponent,
     PokemonDetailsComponent,
     ScrollToTopComponent,
-    SortPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,

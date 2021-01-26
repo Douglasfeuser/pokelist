@@ -1,24 +1,25 @@
-
-
   <div *ngIf = "loadingComplete === false; else ngTemplateTrue">
     <div class="spinner-border" role="status">
       <span class="sr-only">Loading...</span>
     </div>
   </div>
   <ng-template #ngTemplateTrue>
-    <div *ngFor="let r of Games">
-      <div class="card card-expand-sm" >
+    <div *ngFor="let game of Games">
+      <div class="card card-expand-sm" *ngIf="game.name != 'XD' && game.name != 'Colosseum'">
         <div class="card-body">
-          <a href="/game/{{r.dbName}}" class="btn btn-secondary">Go to Game: {{r.GameName}}</a>
+          <a href="/jogo/{{game.name}}" class="btn btn-danger">Ver jogo: {{game.name}}</a>
           <ul class="list-group list-group-horizontal">
-            <li class="list-group-item">Caught
-              <span class="badge badge-secondary badge-pill">{{r.caught}}</span>
+            <li class="list-group-item">
+              {{game.generation}}
             </li>
-            <li class="list-group-item">Favorite
-              <span class="badge badge-secondary badge-pill">{{r.favorite}}</span>
+            <li class="list-group-item">
+              Regiões no jogo: {{game.regions}}
             </li>
-            <li class="list-group-item">Total
-              <span class="badge badge-secondary badge-pill">{{r.total}}</span>
+            <li class="list-group-item">
+              Pokedex do jogo: {{game.pokedex}}
+            </li>
+            <li class="list-group-item">Total pokemons:
+              <span class="badge badge-danger badge-pill">{{game.total}}</span>
             </li>
           </ul>
         </div>

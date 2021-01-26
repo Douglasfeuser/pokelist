@@ -11,7 +11,10 @@
         <div class="card-body">
           <a href="/geracao/{{generation.id}}" class="btn btn-danger">Ver geração: {{generation.name}}</a>
           <ul class="list-group list-group-horizontal">
-            <li class="list-group-item">Total
+            <li class="list-group-item">Total de jogos:
+              <span class="badge badge-danger badge-pill">{{generation.totalJogos}}</span>
+            </li>
+            <li class="list-group-item">Total pokemons:
               <span class="badge badge-danger badge-pill">{{generation.total}}</span>
             </li>
           </ul>

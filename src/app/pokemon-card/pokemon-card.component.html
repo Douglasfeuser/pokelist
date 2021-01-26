@@ -3,7 +3,12 @@
 
     <div class="card-detail" >
       <div class="d-inline-block">
-          <h5 class="card-title" >{{pokemon.name}} - <span>{{pokemon.number}}</span></h5>
+          <h5 class="card-title" >{{pokemon.name}} -
+            <span *ngIf="entry_number; else number">{{entry_number}}</span>
+            <ng-template #number>
+              <span>{{pokemon.number}}</span>
+            </ng-template>
+          </h5>
       </div>
 
       <ul class="list-group list-group-horizontal">

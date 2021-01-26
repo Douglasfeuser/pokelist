@@ -10,6 +10,42 @@ export class PokemondbService {
   constructor(
   ) { }
 
+  async getVersionsList(){
+    var versions = await P.getVersionsList();
+    return versions.results;
+  }
+
+  async getVersionByName(name){
+    var version = await P.getVersionByName(name);
+    return version;
+  }
+
+  async getVersionGroupsList(){
+    var versionsGroups = await P.getVersionGroupsList();
+    return versionsGroups;
+  }
+
+  async getVersionGroupByName(name){
+    var versionsGroup = await P.getVersionGroupByName(name);
+    return versionsGroup;
+  }
+
+  async getGenerationByName(name){
+    var generation = await P.getGenerationByName(name);
+    return generation;
+  }
+
+  async getPokedexByName(name){
+    var pokedex = await P.getPokedexByName(name);
+    return pokedex;
+  }
+
+  async getRegionByName(name){
+    return await P.resource(`api/v2/region/${name}`).then(function(response) {
+      return response;
+    })
+  }
+
   async getAllPokemonSpecies(){
     var pokemonSpecies = await P.getPokemonSpeciesList();
     var pSpeciesList = new Array;
@@ -49,7 +85,6 @@ export class PokemondbService {
     });
 
     load.then(() => {
-      console.log(arrayPokemon);
       return arrayPokemon;
     });
   }
