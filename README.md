@@ -28,3 +28,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 Refatorar o projeto para ter uma performace melhor, atualmente tem muitas chamadas para a API.
 Filtros de pesquisa por nome ou número.
+Terminar testes e verificar coverage do projeto.
