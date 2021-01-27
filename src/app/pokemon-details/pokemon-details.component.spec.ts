@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { PokemondbService } from '../pokemondb.service';
 
 import { PokemonDetailsComponent } from './pokemon-details.component';
 
@@ -10,13 +9,12 @@ describe('PokemonDetailsComponent', () => {
   let component: PokemonDetailsComponent;
   let fixture: ComponentFixture<PokemonDetailsComponent>;
   let route: ActivatedRoute;
-  let http: HttpClient;
+  let pokemonService: PokemondbService;
 
   beforeEach(waitForAsync(() => {
-    component = new PokemonDetailsComponent(route, http);
+    component = new PokemonDetailsComponent(route, pokemonService);
     TestBed.configureTestingModule({
       imports: [
-        HttpClientTestingModule,
         RouterTestingModule
       ],
       declarations: [ PokemonDetailsComponent ]
